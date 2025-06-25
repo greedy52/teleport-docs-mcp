@@ -1,0 +1,15 @@
+[project]
+name = "teleport-docs"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "chromadb>=1.0.13",
+    "langchain>=0.3.26",
+    "langchain-chroma>=0.2.4",
+    "langchain-community>=0.3.26",
+    "langchain-ollama>=0.3.3",
+    "mcp[cli]>=1.9.4",
+    "tqdm>=4.67.1",
+]
