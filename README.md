@@ -28,6 +28,7 @@ curl -Ls https://astral.sh/uv/install.sh | sh
 
 ## MCP config
 
+Replace with your directory path!
 ```json
 {
   "mcpServers": {
@@ -43,7 +44,6 @@ curl -Ls https://astral.sh/uv/install.sh | sh
   }
 }
 ```
-Replace with your directory path!
 
 ## Refresh database
 
