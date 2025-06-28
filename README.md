@@ -45,6 +45,16 @@ Replace with your directory path!
 }
 ```
 
+## Prep doc files
+
+```bash
+rm -rf docs/pages
+rm -rf docs/pages_fixed
+cp /path/to/teleport/docs/pages docs/pages`
+cp /path/to/teleport/examples docs/examples`
+python3 fix_include.py
+```
+
 ## Refresh database
 
 The vector database is prepopulated and provided with this repo. You can
@@ -53,7 +63,6 @@ the [teleport](https://github.com/gravitational/teleport/tree/master/docs/pages)
 OSS GitHub repo.
 
 - `rm -rf chroma_index/`
-- `cp /path/to/teleport/docs/pages docs/pages`
 - `python3 embed.py`
 
 It takes a while to generate though.
