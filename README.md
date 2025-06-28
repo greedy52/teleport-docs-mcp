@@ -12,13 +12,6 @@ MCP tool to interpret the result.
 
 ## Pre-req
 
-### Ollama
-
-Install [Ollama](https://ollama.com/), then:
-```bash
-ollama pull mxbai-embed-large
-```
-
 ### uv
 
 Install `uv`:
@@ -45,8 +38,15 @@ Replace with your directory path!
 }
 ```
 
-## Prep doc files
 
+## If need to rebuild database
+
+The vector database is prepopulated and provided with this repo. You can
+refresh the data by removing existing indexes, and copy the latest pages from
+the [teleport](https://github.com/gravitational/teleport/tree/master/docs/pages)
+OSS GitHub repo.
+
+To prep files:
 ```bash
 rm -rf docs/pages
 rm -rf docs/pages_fixed
@@ -55,14 +55,10 @@ cp /path/to/teleport/examples docs/examples`
 python3 fix_include.py
 ```
 
-## Refresh database
-
-The vector database is prepopulated and provided with this repo. You can
-refresh the data by removing existing indexes, and copy the latest pages from
-the [teleport](https://github.com/gravitational/teleport/tree/master/docs/pages)
-OSS GitHub repo.
-
-- `rm -rf chroma_index/`
-- `python3 embed.py`
+To generate new db:
+```bash
+rm -rf chroma_index/
+python3 embed.py
+```
 
 It takes a while to generate though.
