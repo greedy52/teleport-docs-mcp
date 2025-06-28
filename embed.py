@@ -3,12 +3,11 @@ import os
 from langchain_community.document_loaders import TextLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_chroma import Chroma
-from langchain_ollama import OllamaEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 
 # Settings
-MDX_DIR = "docs/pages"
+MDX_DIR = "docs/pages_fixed"
 PERSIST_DIR = "chroma_index"
-EMBEDDING_MODEL = "mxbai-embed-large"
 
 # Step 1: Load .mdx files
 print("📂 Loading MDX files...")
@@ -29,7 +28,9 @@ chunks = splitter.split_documents(docs)
 print(f"🧩 Created {len(chunks)} chunks")
 
 # Embedding setup
-embeddings = OllamaEmbeddings(model="mxbai-embed-large")
+embeddings = HuggingFaceEmbeddings(
+    model_name="BAAI/bge-small-en-v1.5"
+)
 
 # Now store them
 print("💾 Embedding and storing in persistent Chroma DB. It takes forever and burns your laptop, so be patient.")
