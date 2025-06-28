@@ -19,6 +19,11 @@ Install `uv`:
 curl -Ls https://astral.sh/uv/install.sh | sh
 ```
 
+And install packages:
+```bash
+uv pip install -r requirement.txt
+```
+
 ## MCP config
 
 Replace with your directory path!
