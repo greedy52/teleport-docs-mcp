@@ -10,7 +10,22 @@ and return the result from the database. Note that no LLM model is used to
 interpret the result within the MCP tool. It's up to the AI tool that calls the
 MCP tool to interpret the result.
 
-## Setup for Docker
+## Use from Dockerhub
+
+https://hub.docker.com/r/stevetelelport/teleport-docs-mcp
+
+stdio
+```
+docker run --rm -i stevetelelport/teleport-docs-mcp:v0.1.0
+```
+
+sse
+```
+docker run -d --name teleport-docs-mcp-sse -p 8282:8000 stevetelelport/teleport-docs-mcp:v0.1.0 uv run main.py --sse --host 0.0.0.0
+
+```
+
+## Build local docker
 
 Build
 ```bash
@@ -27,7 +42,7 @@ SSE
 $ docker run --name teleport-docs-mcp-sse -d -p 8282:8000 teleport-docs uv main.py --sse --host 0.0.0.0
 ```
 
-## Setup for non-docker, local, dev
+## Build without docker
 
 ### uv
 
