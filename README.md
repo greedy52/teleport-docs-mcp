@@ -10,7 +10,24 @@ and return the result from the database. Note that no LLM model is used to
 interpret the result within the MCP tool. It's up to the AI tool that calls the
 MCP tool to interpret the result.
 
-## Pre-req
+## Setup for Docker
+
+Build
+```bash
+$ docker build -t teleport-docs-mcp .
+```
+
+Stdio
+```
+$ docker run --rm -i teleport-docs-mcp
+```
+
+SSE
+```
+$ docker run --name teleport-docs-mcp-sse -d -p 8282:8000 teleport-docs uv main.py --sse --host 0.0.0.0
+```
+
+## Setup for non-docker, local, dev
 
 ### uv
 
@@ -24,7 +41,7 @@ And install packages:
 uv pip install -r requirement.txt
 ```
 
-## MCP config
+### MCP config (stdio)
 
 Replace with your directory path!
 ```json
@@ -44,7 +61,7 @@ Replace with your directory path!
 ```
 
 
-## If need to rebuild database
+## Rebuild database
 
 The vector database is prepopulated and provided with this repo. You can
 refresh the data by removing existing indexes, and copy the latest pages from
