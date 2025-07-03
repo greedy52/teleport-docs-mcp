@@ -19,13 +19,46 @@ stdio
 docker run --rm -i stevetelelport/teleport-docs-mcp:v0.1.0
 ```
 
+or in config json format:
+```json
+{
+  "mcpServers": {
+    "teleport-docs": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "stevetelelport/teleport-docs-mcp:v0.1.0"
+      ]
+    }
+  }
+}
+```
+
+note that it takes a few seconds to spin up.
+
+
 sse
 ```
 docker run -d --name teleport-docs-mcp-sse -p 8282:8000 stevetelelport/teleport-docs-mcp:v0.1.0 uv run main.py --sse --host 0.0.0.0
-
 ```
 
-## Build local docker
+## Local Development
+
+### uv
+
+Install `uv`:
+```bash
+curl -Ls https://astral.sh/uv/install.sh | sh
+```
+
+And install packages:
+```bash
+uv pip install -r requirement.txt
+```
+
+### Build local docker
 
 Build
 ```bash
@@ -40,20 +73,6 @@ $ docker run --rm -i teleport-docs-mcp
 SSE
 ```
 $ docker run --name teleport-docs-mcp-sse -d -p 8282:8000 teleport-docs uv main.py --sse --host 0.0.0.0
-```
-
-## Build without docker
-
-### uv
-
-Install `uv`:
-```bash
-curl -Ls https://astral.sh/uv/install.sh | sh
-```
-
-And install packages:
-```bash
-uv pip install -r requirement.txt
 ```
 
 ### MCP config (stdio)
@@ -74,7 +93,6 @@ Replace with your directory path!
   }
 }
 ```
-
 
 ## Rebuild database
 
